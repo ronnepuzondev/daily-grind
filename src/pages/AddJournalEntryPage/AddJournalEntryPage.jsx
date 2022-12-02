@@ -1,10 +1,36 @@
 import { useState, useEffect } from 'react'
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import axios from "axios"
 
 export default function AddJournalEntryPage() {
   const [data, setData] = useState(null);
 
+  // create attempt code starts here
+  const [input, setInput] = useState({
+    gratefulFor: '',
+    affirmations: '',
+  })
+
+
+  function handleChange(event) {
+    const {name, value} = event.target;
+    setInput(prevInput => {
+      return {
+        ...prevInput, [name]: value
+      }
+    })
+  }
+
+  function handleClick(event) {
+    event.preventDefault();
+    const newJournalEntry = {
+      gratefulFor: input.gratefulFor,
+      affirmations: input.affirmations
+    }
+    axios.post('http://localhost:3001/create', newJournalEntry)
+  }
+// create attempt code ends here
   async function updateQuote() {
     try {
       const response = await fetch("https://api.quotable.io/random");
@@ -27,6 +53,9 @@ export default function AddJournalEntryPage() {
   // Do not render until the first quote is loaded
   if (!data) return null;
 
+   
+
+
   return (
     <div className="App">
       <Card style={{ width: "90%", maxWidth: "40rem" }}>
@@ -45,7 +74,23 @@ export default function AddJournalEntryPage() {
             New Quote
           </Button>
         </Card.Footer>
-      </Card>
+        </Card>
+      <div>
+
+// create attempt code starts here
+
+      <h1>Add Journal Entry</h1>
+
+      <form>
+      <div><input onChange={handleChange} name="gratefulFor" value={input.gratefulFor}></input></div>
+      <div><textarea onChange={handleChange} name="affirmations" value={input.affirmations}></textarea></div>
+      <button onClick={handleClick}>Add Journal Entries</button>
+      </form>
+      </div>
+
+// create attempt code ends here
+      
+
     </div>
   );
 }
