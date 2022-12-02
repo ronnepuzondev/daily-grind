@@ -44,6 +44,7 @@
 - React.JS
 - React Bootstrap
 - JWT
+- Quotable Api (random quote generator - https://github.com/lukePeavey/quotable )
 
 
 &nbsp;
