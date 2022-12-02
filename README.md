@@ -4,8 +4,20 @@
 &nbsp;
 ## **Wireframes:**
 
-pending
+### Login Page ###
+<img src="images/loginPage.jpg" alt="drawing" width="500"/>
+&nbsp;
 
+### Nav Bar and Landing Page ###
+<img src="images/navbar.jpg" alt="drawing" width="500"/>
+&nbsp;
+
+### My Journals ###
+<img src="images/myJournals.jpg" alt="drawing" width="500"/>
+&nbsp;
+
+### Add Journal Entry - will display random quote on top of page using API to help inspire user ###
+<img src="images/addJournalEntry.jpg" alt="drawing" width="500"/>
 &nbsp;
 
 
