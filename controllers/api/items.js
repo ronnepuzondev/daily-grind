@@ -1,18 +1,15 @@
-const Item = require('../../models/item');
+const db = require('../../models');
+const mongoose = require('mongoose')
 
 module.exports = {
-  index,
-  show
-};
+  createEntry }
 
-async function index(req, res) {
-  const items = await Item.find({}).sort('name').populate('category').exec();
-  // re-sort based upon the sortOrder of the categories
-  items.sort((a, b) => a.category.sortOrder - b.category.sortOrder);
-  res.json(items);
-}
-
-async function show(req, res) {
-  const item = await Item.findById(req.params.id);
-  res.json(item);
-}
+  async function createEntry(req, res) {
+    try {
+      const newNote = new db.Journal(req.body)
+      const note = await db.Journal.create(newNote)
+      return res.json(note)
+    } catch (error) {
+      res.status(422).json({ msg: 'Error creating Journal Entry'})
+    }
+  }

@@ -4,12 +4,12 @@ import Card from "react-bootstrap/Card";
 import axios from "axios"
 
 export default function AddJournalEntryPage() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState();
 
   // create attempt code starts here
   const [input, setInput] = useState({
-    gratefulFor: '',
-    affirmations: '',
+    gratefulFor: "",
+    description: "",
   })
 
 
@@ -24,11 +24,11 @@ export default function AddJournalEntryPage() {
 
   function handleClick(event) {
     event.preventDefault();
-    const newJournalEntry = {
-      gratefulFor: input.gratefulFor,
-      affirmations: input.affirmations
-    }
-    axios.post('http://localhost:3001/create', newJournalEntry)
+    axios
+    .post("/create", input)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err))
+    
   }
 // create attempt code ends here
   async function updateQuote() {
@@ -77,7 +77,6 @@ export default function AddJournalEntryPage() {
         </Card>
       <div>
 
-// create attempt code starts here
 
       <h1>Add Journal Entry</h1>
 
@@ -87,8 +86,6 @@ export default function AddJournalEntryPage() {
       <button onClick={handleClick}>Add Journal Entries</button>
       </form>
       </div>
-
-// create attempt code ends here
       
 
     </div>
