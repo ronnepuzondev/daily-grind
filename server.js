@@ -9,6 +9,7 @@ require('dotenv').config();
 // Connect to db after the dotenv above
 require('./config/database');
 const DailyJournal = require('../daily-grind/models/dailyjournal');
+const user = require('./models/user');
 const app = express();
 app.use(cors());
 
@@ -27,17 +28,57 @@ app.use(require('./config/checkToken'));
 app.use('/api/users', require('./routes/api/users'));
 // app.post('/api/dailyJournalRoute', require('./routes/api/dailyJournalRoute'))
 
+// ROUTES AND CONTROLLER FUNCTION BELOW
+
+// create route and function
 app.post("/create", (req, res) => {
   const newNote = new DailyJournal({
     gratefulFor: req.body.gratefulFor,
-    affirmations: req.body.affirmations
+    affirmations: req.body.affirmations,
+    goals: req.body.goals,
+    wellnessGoals: req.body.wellnessGoals,
+    dailyThoughts: req.body.dailyThoughts,
   });
+  
 
   newNote
     .save()
     .then((doc) => console.log(doc))
     .catch((err) => console.log(err));
 });
+
+// display route and function
+app.get("/journals", (req, res) => {
+  DailyJournal.find()
+    .then((items) => res.json(items))
+    .catch((err) => console.log(err));
+});
+
+// delete route and function
+app.delete("/delete/:id", (req, res) => {
+  console.log(req.params);
+  DailyJournal.findByIdAndDelete({ _id: req.params.id })
+    .then((doc) => console.log(doc))
+    .catch((err) => console.log(err));
+});
+
+// edit route and function
+app.put("/update/:id", (req, res) => {
+  DailyJournal.findByIdAndUpdate(
+    { _id: req.params.id },
+    {
+      gratefulFor: req.body.gratefulFor,
+      affirmations: req.body.affirmations,
+      goals: req.body.goals,
+      wellnessGoals: req.body.wellnessGoals,
+      dailyThoughts: req.body.dailyThoughts,
+    }
+  )
+    .then((doc) => console.log(doc))
+    .catch((err) => console.log(err));
+});
+
+
 
 // "catch-all" route that will match all GET requests
 // that don't match an API route defined above

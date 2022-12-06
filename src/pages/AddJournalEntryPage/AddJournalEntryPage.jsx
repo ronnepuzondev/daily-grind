@@ -9,7 +9,12 @@ export default function AddJournalEntryPage() {
   // create attempt code starts here
   const [input, setInput] = useState({
     gratefulFor: "",
-    description: "",
+    affirmations: "",
+    goals: "",
+    wellnessGoals: "",
+    dailyThoughts: "",
+    user: "",
+
   })
 
 
@@ -83,6 +88,9 @@ export default function AddJournalEntryPage() {
       <form>
       <div><input onChange={handleChange} name="gratefulFor" value={input.gratefulFor}></input></div>
       <div><textarea onChange={handleChange} name="affirmations" value={input.affirmations}></textarea></div>
+      <div><textarea onChange={handleChange} name="goals" value={input.goals}></textarea></div>
+      <div><textarea onChange={handleChange} name="wellnessGoals" value={input.wellnessGoals}></textarea></div>
+      <div><textarea onChange={handleChange} name="dailyThoughts" value={input.dailyThoughts}></textarea></div>
       <button onClick={handleClick}>Add Journal Entries</button>
       </form>
       </div>

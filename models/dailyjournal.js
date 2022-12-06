@@ -6,7 +6,10 @@ const Schema = mongoose.Schema;
 const dailyJournalSchema = new Schema({
     gratefulFor: {type: String},
     affirmations: {type: String},
-    user: {type: Schema.Types.ObjectId, ref: 'User'}
+    goals: {type: String},
+    wellnessGoals: {type: String},
+    dailyThoughts: {type: String},
+    // user: {type: Schema.Types.ObjectId, ref: 'User', required: true}
 },{
     timestamps: true
 })
