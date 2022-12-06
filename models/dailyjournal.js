@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 
 const dailyJournalSchema = new Schema({
+    dateAdded: {type: Date},
     gratefulFor: {type: String},
     affirmations: {type: String},
     goals: {type: String},

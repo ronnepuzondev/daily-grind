@@ -33,6 +33,7 @@ app.use('/api/users', require('./routes/api/users'));
 // create route and function
 app.post("/create", (req, res) => {
   const newNote = new DailyJournal({
+    dateAdded: req.body.dateAdded,
     gratefulFor: req.body.gratefulFor,
     affirmations: req.body.affirmations,
     goals: req.body.goals,
@@ -67,6 +68,7 @@ app.put("/update/:id", (req, res) => {
   DailyJournal.findByIdAndUpdate(
     { _id: req.params.id },
     {
+      dateAdded: req.body.dateAdded,
       gratefulFor: req.body.gratefulFor,
       affirmations: req.body.affirmations,
       goals: req.body.goals,

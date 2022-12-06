@@ -45,11 +45,12 @@ export default function MyJournalsPage() {
     window.location.reload();
   };
 
-  const updateJournal = (id, gratefulFor, affirmations, goals, wellnessGoals, dailyThoughts) => {
+  const updateJournal = (id, dateAdded, gratefulFor, affirmations, goals, wellnessGoals, dailyThoughts) => {
     setUpdatedJournal((prev) => {
       return {
         ...prev,
         id: id,
+        dateAdded: dateAdded,
         gratefulFor: gratefulFor,
         affirmations: affirmations,
         goals: goals,
@@ -92,6 +93,12 @@ export default function MyJournalsPage() {
           <Modal.Title>Update a journal</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        <Form.Control
+            type="date"
+            name="dateAdded"
+            onChange={handleChange}
+            value={updatedJournal.dateAdded ? updatedJournal.dateAdded : ""}
+          />
           <Form.Control
             placeholder="grateful for"
             name="gratefulFor"
@@ -145,6 +152,7 @@ export default function MyJournalsPage() {
                 }}
                 key={journal._id}
               >
+                <p>{journal.dateAdded}</p>
                 <p>{journal.gratefulFor}</p>
                 <p>{journal.affirmations}</p>
                 <p>{journal.goals}</p>
@@ -164,6 +172,7 @@ export default function MyJournalsPage() {
                     onClick={() =>
                       updateJournal(
                         journal._id,
+                        journal.dateAdded,
                         journal.gratefulFor,
                         journal.affirmations,
                         journal.goals,

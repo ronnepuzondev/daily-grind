@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import axios from "axios"
 
 export default function AddJournalEntryPage() {
+  const navigate = useNavigate();
   const [data, setData] = useState();
 
   // create attempt code starts here
   const [input, setInput] = useState({
+    dateAdded: "",
     gratefulFor: "",
     affirmations: "",
     goals: "",
@@ -33,6 +36,8 @@ export default function AddJournalEntryPage() {
     .post("/create", input)
     .then((res) => console.log(res))
     .catch((err) => console.log(err))
+
+    navigate("/journals");
     
   }
 // create attempt code ends here
@@ -86,6 +91,7 @@ export default function AddJournalEntryPage() {
       <h1>Add Journal Entry</h1>
 
       <form>
+      <div><input type="date" onChange={handleChange} name="dateAdded" value={input.dateAdded}></input></div>
       <div><input onChange={handleChange} name="gratefulFor" value={input.gratefulFor}></input></div>
       <div><textarea onChange={handleChange} name="affirmations" value={input.affirmations}></textarea></div>
       <div><textarea onChange={handleChange} name="goals" value={input.goals}></textarea></div>
