@@ -95,9 +95,8 @@ export default function MyJournalsPage() {
           <Form.Control
             placeholder="grateful for"
             name="gratefulFor"
-            value={updatedJournal.gratefulFor ? updatedJournal.gratefulFor : ""}
-            style={{ marginBottom: "1rem" }}
             onChange={handleChange}
+            value={updatedJournal.gratefulFor ? updatedJournal.gratefulFor : ""}
           />
           <Form.Control
             placeholder="affirmations"
@@ -165,7 +164,7 @@ export default function MyJournalsPage() {
                     onClick={() =>
                       updateJournal(
                         journal._id,
-                        journal.grateFulfor,
+                        journal.gratefulFor,
                         journal.affirmations,
                         journal.goals,
                         journal.wellnessGoals,
