@@ -5,11 +5,7 @@ import axios from "axios";
 import { Button, Form } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 
-export default function MyJournalsPage() {
-  // async function handleCheckToken() {
-  //   const expDate = await checkToken();
-  //   console.log(expDate);
-  // }
+export default function MyJournalsPage({user}) {
   const [journals, setJournals] = useState([]);
   const [updatedJournal, setUpdatedJournal] = useState({
     id: "",
@@ -20,7 +16,6 @@ export default function MyJournalsPage() {
     dailyThoughts: "",
   });
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -45,7 +40,15 @@ export default function MyJournalsPage() {
     window.location.reload();
   };
 
-  const updateJournal = (id, dateAdded, gratefulFor, affirmations, goals, wellnessGoals, dailyThoughts) => {
+  const updateJournal = (
+    id,
+    dateAdded,
+    gratefulFor,
+    affirmations,
+    goals,
+    wellnessGoals,
+    dailyThoughts
+  ) => {
     setUpdatedJournal((prev) => {
       return {
         ...prev,
@@ -83,17 +86,16 @@ export default function MyJournalsPage() {
     window.location.reload();
   };
 
-
   return (
     <div style={{ width: "90%", margin: "auto auto", textAlign: "center" }}>
-      <h1>My Journals</h1>
-  
+      <h1>My Journals {user._id} </h1>
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Update a journal</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <Form.Control
+          <Form.Control
             type="date"
             name="dateAdded"
             onChange={handleChange}
@@ -109,25 +111,31 @@ export default function MyJournalsPage() {
             placeholder="affirmations"
             name="affirmations"
             onChange={handleChange}
-            value={updatedJournal.affirmations ? updatedJournal.affirmations : ""}
+            value={
+              updatedJournal.affirmations ? updatedJournal.affirmations : ""
+            }
           />
-            <Form.Control
+          <Form.Control
             placeholder="goals"
             name="goals"
             onChange={handleChange}
             value={updatedJournal.goals ? updatedJournal.goals : ""}
           />
-            <Form.Control
+          <Form.Control
             placeholder="wellness goals"
             name="wellnessGoals"
             onChange={handleChange}
-            value={updatedJournal.wellnessGoals ? updatedJournal.wellnessGoals : ""}
+            value={
+              updatedJournal.wellnessGoals ? updatedJournal.wellnessGoals : ""
+            }
           />
-            <Form.Control
+          <Form.Control
             placeholder="daily thoughts"
             name="dailyThoughts"
             onChange={handleChange}
-            value={updatedJournal.dailyThoughts ? updatedJournal.dailyThoughts : ""}
+            value={
+              updatedJournal.dailyThoughts ? updatedJournal.dailyThoughts : ""
+            }
           />
         </Modal.Body>
         <Modal.Footer>

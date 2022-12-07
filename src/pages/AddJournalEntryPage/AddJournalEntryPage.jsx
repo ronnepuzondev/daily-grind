@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import axios from "axios"
+import Form from 'react-bootstrap/Form';
 
-export default function AddJournalEntryPage() {
+
+export default function AddJournalEntryPage({user}) {
   const navigate = useNavigate();
   const [data, setData] = useState();
 
@@ -16,10 +18,8 @@ export default function AddJournalEntryPage() {
     goals: "",
     wellnessGoals: "",
     dailyThoughts: "",
-    user: "",
-
+    user: ""
   })
-
 
   function handleChange(event) {
     const {name, value} = event.target;
@@ -31,6 +31,7 @@ export default function AddJournalEntryPage() {
   }
 
   function handleClick(event) {
+    console.log({user})
     event.preventDefault();
     axios
     .post("/create", input)
@@ -81,14 +82,14 @@ export default function AddJournalEntryPage() {
         </Card.Body>
         <Card.Footer>
           <Button variant="primary" onClick={updateQuote}>
-            New Quote
+            Inspire me!
           </Button>
         </Card.Footer>
         </Card>
-      <div>
+      
 
 
-      <h1>Add Journal Entry</h1>
+      <h1>Add Journal Entry {user.name} </h1>
 
       <form>
       <div><input type="date" onChange={handleChange} name="dateAdded" value={input.dateAdded}></input></div>
@@ -99,7 +100,27 @@ export default function AddJournalEntryPage() {
       <div><textarea onChange={handleChange} name="dailyThoughts" value={input.dailyThoughts}></textarea></div>
       <button onClick={handleClick}>Add Journal Entries</button>
       </form>
-      </div>
+      
+      <Form>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
       
 
     </div>

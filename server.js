@@ -9,10 +9,11 @@ require('dotenv').config();
 // Connect to db after the dotenv above
 require('./config/database');
 const DailyJournal = require('../daily-grind/models/dailyjournal');
-const user = require('./models/user');
 const app = express();
 app.use(cors());
-
+app.use(
+  express.urlencoded({ extended: true })
+);
 app.use(logger('dev'));
 // Process data in body of request if 
 // Content-Type: 'application/json'
@@ -39,8 +40,10 @@ app.post("/create", (req, res) => {
     goals: req.body.goals,
     wellnessGoals: req.body.wellnessGoals,
     dailyThoughts: req.body.dailyThoughts,
-  });
+    user: req.body.user
   
+    
+  });
 
   newNote
     .save()
@@ -93,3 +96,4 @@ const port = process.env.PORT || 3001;
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`);
 });
+

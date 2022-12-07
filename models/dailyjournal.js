@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+require('./user')
 
 
 const dailyJournalSchema = new Schema({
