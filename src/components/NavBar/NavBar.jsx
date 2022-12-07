@@ -50,6 +50,7 @@ export default function NavBar({ user, setUser }) {
             <Nav.Link eventKey={2} href="#memes">
               Welcome, {user.name}
             </Nav.Link>
+            <Nav.Link to="" onClick={handleLogOut}>Log Out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
