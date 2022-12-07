@@ -3,6 +3,9 @@ const router = express.Router();
 
 const journalsCtrl = require('../../controllers/api/journals');
 
+router.post('/create', journalsCtrl.createEntry)
+
+module.exports = router
 // router.post("/create").post((req, res) => {
 //     const gratefulFor = req.body.gratefulFor;
 //     const affirmations = req.body.affirmations;
@@ -17,7 +20,7 @@ const journalsCtrl = require('../../controllers/api/journals');
 // module.exports = router;
 
 //create journal entry
-router.post('/create', journalsCtrl.createEntry)
+
 
 // //get all journals
 // router.get('/api/items', async (req, res) =>{
@@ -48,4 +51,4 @@ router.post('/create', journalsCtrl.createEntry)
 //     }
 // })
 
-module.exports = router
+

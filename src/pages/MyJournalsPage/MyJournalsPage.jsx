@@ -88,7 +88,7 @@ export default function MyJournalsPage({user}) {
 
   return (
     <div style={{ width: "90%", margin: "auto auto", textAlign: "center" }}>
-      <h1>My Journals {user._id} </h1>
+      <h1>{user.name}'s Journals </h1>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -153,29 +153,29 @@ export default function MyJournalsPage({user}) {
         <>
           {journals.map((journal) => {
             return (
-              <Card style={{textAlign: "left", marginTop: "20px" }}>
+              <Card style={{textAlign: "left", marginTop: "20px" }} key={journal._id}>
                 <Card.Body>
-                <Card.Title className="mb-4">
+                <Card.Title className="mb-2">
                 Date Added:
                 </Card.Title>
                 <p>{journal.dateAdded}</p>
-                <Card.Title className="mb-4">
+                <Card.Title className="mb-2">
                 I Am Grateful For:
                 </Card.Title>
                 <p>{journal.gratefulFor}</p>
-                <Card.Title className="mb-4">
+                <Card.Title className="mb-2">
                 My Affirmations:
                 </Card.Title>
                 <p>{journal.affirmations}</p>
-                <Card.Title className="mb-4">
+                <Card.Title className="mb-2">
                 My Goals Today:
                 </Card.Title>
                 <p>{journal.goals}</p>
-                <Card.Title className="mb-4">
+                <Card.Title className="mb-2">
                 My Wellness Goals Today:
                 </Card.Title>
                 <p>{journal.wellnessGoals}</p>
-                <Card.Title className="mb-4">
+                <Card.Title className="mb-2">
                 My Thoughts Today:
                 </Card.Title>
                 <p>{journal.dailyThoughts}</p>

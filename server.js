@@ -27,6 +27,9 @@ app.use(require('./config/checkToken'));
 
 // Put all API routes here (before the catch-all)
 app.use('/api/users', require('./routes/api/users'));
+
+// app.use('/create', require('./routes/api/journalsroute'))
+
 // app.post('/api/dailyJournalRoute', require('./routes/api/dailyJournalRoute'))
 
 // ROUTES AND CONTROLLER FUNCTION BELOW
