@@ -20,6 +20,7 @@ export default function AddJournalEntryPage({ user }) {
     dailyThoughts: "",
     user: "",
   });
+  
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -78,18 +79,13 @@ export default function AddJournalEntryPage({ user }) {
             )}
           </blockquote>
         </Card.Body>
-        <Card.Footer>
-          <Button variant="secondary" onClick={updateQuote}>
-            Need More Inspiration
-          </Button>
-        </Card.Footer>
       </Card>
 
 
               
               <Card style={{ width: "90%", marginTop: "20px", margin: "auto auto", maxWidth: "40rem" }}>
                 <Card.Body>
-                <Card.Title>Add a Journal Entry, {user.name} </Card.Title>
+                <Card.Title>Add Journal Entry</Card.Title>
       <form>
               <input
             type="date"
@@ -170,8 +166,11 @@ export default function AddJournalEntryPage({ user }) {
       </Card.Body>
       <Card.Footer>
       <Button onClick={handleClick} variant="dark" type="submit">
-        Submit
+        Add Journal
       </Button>
+      <Button variant="secondary" onClick={updateQuote}>
+            Need More Inspiration
+          </Button>
       </Card.Footer>
       </Card>
       {/* <form>
