@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import axios from "axios"
-import Form from 'react-bootstrap/Form';
+import axios from "axios";
+import Form from "react-bootstrap/Form";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 
-
-export default function AddJournalEntryPage({user}) {
+export default function AddJournalEntryPage({ user }) {
   const navigate = useNavigate();
   const [data, setData] = useState();
 
@@ -18,30 +18,30 @@ export default function AddJournalEntryPage({user}) {
     goals: "",
     wellnessGoals: "",
     dailyThoughts: "",
-    user: ""
-  })
+    user: "",
+  });
 
   function handleChange(event) {
-    const {name, value} = event.target;
-    setInput(prevInput => {
+    const { name, value } = event.target;
+    setInput((prevInput) => {
       return {
-        ...prevInput, [name]: value
-      }
-    })
+        ...prevInput,
+        [name]: value,
+      };
+    });
   }
 
   function handleClick(event) {
-    console.log({user})
+    console.log({ user });
     event.preventDefault();
     axios
-    .post("/create", input)
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err))
+      .post("/create", input)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
 
     navigate("/journals");
-    
   }
-// create attempt code ends here
+  // create attempt code ends here
   async function updateQuote() {
     try {
       const response = await fetch("https://api.quotable.io/random");
@@ -64,13 +64,11 @@ export default function AddJournalEntryPage({user}) {
   // Do not render until the first quote is loaded
   if (!data) return null;
 
-   
-
-
   return (
-    <div className="App">
-      <Card style={{ width: "90%", maxWidth: "40rem" }}>
+    <div style={{ width: "90%", margin: "auto auto", textAlign: "center" }}>
+      <Card style={{ alignContent: "center", margin: "auto auto", width: "90%", maxWidth: "40rem" }}>
         <Card.Body>
+        <Card.Subtitle className="mb-2 text-muted"> {user.name}, here's a quote for inspiration!</Card.Subtitle>
           <blockquote className="blockquote mb-0">
             <p>{data.content}</p>
             {data.author && (
@@ -81,27 +79,150 @@ export default function AddJournalEntryPage({user}) {
           </blockquote>
         </Card.Body>
         <Card.Footer>
-          <Button variant="primary" onClick={updateQuote}>
-            Inspire me!
+          <Button variant="secondary" onClick={updateQuote}>
+            Need More Inspiration
           </Button>
         </Card.Footer>
-        </Card>
-      
+      </Card>
 
 
-      <h1>Add Journal Entry {user.name} </h1>
-
+              
+              <Card style={{ width: "90%", marginTop: "20px", margin: "auto auto", maxWidth: "40rem" }}>
+                <Card.Body>
+                <Card.Title>Add a Journal Entry, {user.name} </Card.Title>
       <form>
-      <div><input type="date" onChange={handleChange} name="dateAdded" value={input.dateAdded}></input></div>
-      <div><input onChange={handleChange} name="gratefulFor" value={input.gratefulFor}></input></div>
-      <div><textarea onChange={handleChange} name="affirmations" value={input.affirmations}></textarea></div>
-      <div><textarea onChange={handleChange} name="goals" value={input.goals}></textarea></div>
-      <div><textarea onChange={handleChange} name="wellnessGoals" value={input.wellnessGoals}></textarea></div>
-      <div><textarea onChange={handleChange} name="dailyThoughts" value={input.dailyThoughts}></textarea></div>
-      <button onClick={handleClick}>Add Journal Entries</button>
+              <input
+            type="date"
+            onChange={handleChange}
+            name="dateAdded"
+            value={input.dateAdded}
+          ></input>
+      <FloatingLabel
+        controlId="floatingTextarea"
+        label="I am grateful for.."
+        className="mb-3"
+      >
+        <Form.Control
+          as="textarea"
+          name="gratefulFor"
+          placeholder="Leave a comment here"
+          onChange={handleChange}
+          value={input.gratefulFor}
+
+        />
+      </FloatingLabel>
+
+
+      <FloatingLabel
+        controlId="floatingTextarea"
+        label="My daily affirmations.."
+        className="mb-3"
+      >
+        <Form.Control
+          as="textarea"
+          name="affirmations"
+          placeholder="Leave a comment here"
+          onChange={handleChange}
+          value={input.affirmations}
+        />
+      </FloatingLabel>
+
+      <FloatingLabel
+        controlId="floatingTextarea"
+        label="My goals for today.."
+        className="mb-3"
+      >
+        <Form.Control
+          as="textarea"
+          name="goals"
+          placeholder="Leave a comment here"
+          onChange={handleChange}
+          value={input.goals}
+        />
+      </FloatingLabel>
+
+      <FloatingLabel
+        controlId="floatingTextarea"
+        label="My wellness goals for today.."
+        className="mb-3"
+      >
+        <Form.Control
+          as="textarea"
+          name="wellnessGoals"
+          placeholder="Leave a comment here"
+          onChange={handleChange}
+          value={input.wellnessGoals}
+        />
+      </FloatingLabel>
+   
+
+      <FloatingLabel controlId="floatingTextarea2" label="My daily thoughts..">
+        <Form.Control
+          as="textarea"
+          name="dailyThoughts"
+          placeholder="Leave a comment here"
+          style={{ height: "200px" }}
+          onChange={handleChange}
+          value={input.dailyThoughts}
+        />
+      </FloatingLabel>
       </form>
-      
-      <Form>
+      </Card.Body>
+      <Card.Footer>
+      <Button onClick={handleClick} variant="dark" type="submit">
+        Submit
+      </Button>
+      </Card.Footer>
+      </Card>
+      {/* <form>
+        <div>
+          <input
+            type="date"
+            onChange={handleChange}
+            name="dateAdded"
+            value={input.dateAdded}
+          ></input>
+        </div>
+        <div>
+          <input
+            onChange={handleChange}
+            name="gratefulFor"
+            value={input.gratefulFor}
+          ></input>
+        </div>
+        <div>
+          <textarea
+            onChange={handleChange}
+            name="affirmations"
+            value={input.affirmations}
+          ></textarea>
+        </div>
+        <div>
+          <textarea
+            onChange={handleChange}
+            name="goals"
+            value={input.goals}
+          ></textarea>
+        </div>
+        <div>
+          <textarea
+            onChange={handleChange}
+            name="wellnessGoals"
+            value={input.wellnessGoals}
+          ></textarea>
+        </div>
+        <div>
+          <textarea
+            onChange={handleChange}
+            name="dailyThoughts"
+            value={input.dailyThoughts}
+          ></textarea>
+        </div>
+        <button onClick={handleClick}>Add Journal Entries</button>
+      </form> */
+              
+
+      /* <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Date of entry</Form.Label>
         <Form.Control type="date" name="dateAdded"/>
@@ -117,9 +238,7 @@ export default function AddJournalEntryPage({user}) {
       <Button variant="primary" type="submit">
         Submit
       </Button>
-    </Form>
-      
-
+    </Form> */}
     </div>
   );
 }

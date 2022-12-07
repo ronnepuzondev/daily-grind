@@ -33,17 +33,21 @@ app.use('/api/users', require('./routes/api/users'));
 
 // create route and function
 app.post("/create", (req, res) => {
-  const newNote = new DailyJournal({
-    dateAdded: req.body.dateAdded,
-    gratefulFor: req.body.gratefulFor,
-    affirmations: req.body.affirmations,
-    goals: req.body.goals,
-    wellnessGoals: req.body.wellnessGoals,
-    dailyThoughts: req.body.dailyThoughts,
-    user: req.body.user
+  // req.body.user = req.user._id
+  const newNote = new DailyJournal(
+    // dateAdded: req.body.dateAdded,
+    // gratefulFor: req.body.gratefulFor,
+    // affirmations: req.body.affirmations,
+    // goals: req.body.goals,
+    // wellnessGoals: req.body.wellnessGoals,
+    // dailyThoughts: req.body.dailyThoughts,
+    // user: req.body.user
+    req.body
   
     
-  });
+  );
+  // req.body.user = req.user._id
+  // console.log(req.body.user)
 
   newNote
     .save()

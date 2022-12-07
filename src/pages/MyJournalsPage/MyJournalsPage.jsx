@@ -2,7 +2,7 @@ import { checkToken } from "../../utilities/users-service";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Button, Form } from "react-bootstrap";
+import { Button, Card, Form } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 
 export default function MyJournalsPage({user}) {
@@ -133,6 +133,7 @@ export default function MyJournalsPage({user}) {
             placeholder="daily thoughts"
             name="dailyThoughts"
             onChange={handleChange}
+            style={{ height: "200px" }}
             value={
               updatedJournal.dailyThoughts ? updatedJournal.dailyThoughts : ""
             }
@@ -152,31 +153,36 @@ export default function MyJournalsPage({user}) {
         <>
           {journals.map((journal) => {
             return (
-              <div
-                style={{
-                  marginBottom: "1rem",
-                  border: "solid lightgray 1px",
-                  borderRadius: "8px",
-                }}
-                key={journal._id}
-              >
+              <Card style={{textAlign: "left", marginTop: "20px" }}>
+                <Card.Body>
+                <Card.Title className="mb-4">
+                Date Added:
+                </Card.Title>
                 <p>{journal.dateAdded}</p>
+                <Card.Title className="mb-4">
+                I Am Grateful For:
+                </Card.Title>
                 <p>{journal.gratefulFor}</p>
+                <Card.Title className="mb-4">
+                My Affirmations:
+                </Card.Title>
                 <p>{journal.affirmations}</p>
+                <Card.Title className="mb-4">
+                My Goals Today:
+                </Card.Title>
                 <p>{journal.goals}</p>
+                <Card.Title className="mb-4">
+                My Wellness Goals Today:
+                </Card.Title>
                 <p>{journal.wellnessGoals}</p>
+                <Card.Title className="mb-4">
+                My Thoughts Today:
+                </Card.Title>
                 <p>{journal.dailyThoughts}</p>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-
-                    padding: "1rem",
-                  }}
-                >
-                  <Button
-                    variant="outline-info"
+                </Card.Body>
+                <Card.Footer>
+                <Button
+                    variant="dark"
                     onClick={() =>
                       updateJournal(
                         journal._id,
@@ -188,19 +194,22 @@ export default function MyJournalsPage({user}) {
                         journal.dailyThoughts
                       )
                     }
-                    style={{ width: "100%", marginRight: "1rem" }}
+                    // style={{ width: "100%", marginRight: "1rem" }}
                   >
                     UPDATE
                   </Button>
                   <Button
                     onClick={() => deleteJournal(journal._id)}
-                    variant="outline-danger"
-                    style={{ width: "100%" }}
+                    variant="secondary"
+                    // style={{ width: "100%" }}
                   >
                     DELETE
                   </Button>
-                </div>
-              </div>
+                </Card.Footer>
+
+              </Card>
+
+              
             );
           })}
         </>
@@ -208,10 +217,5 @@ export default function MyJournalsPage({user}) {
         ""
       )}
     </div>
-
-    // <>
-    //   <h1>My Journals</h1>
-    //   {/* <button onClick={handleCheckToken}>Check When My Login Expires</button> */}
-    // </>
   );
 }
