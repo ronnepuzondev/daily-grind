@@ -5,6 +5,10 @@ import axios from "axios";
 import { Button, Card, Form } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
+import ReactDOM from 'react-dom'
+import Snowfall from 'react-snowfall'
+
+
 
 export default function MyJournalsPage({ user }) {
   const [journals, setJournals] = useState([]);
@@ -82,6 +86,9 @@ export default function MyJournalsPage({ user }) {
   };
 
   return (
+    <main className="MyJournalsPage" style={{
+      height: "100vh"
+    }}>
     <div style={{ width: "90%", margin: "auto auto", textAlign: "center" }}>
       <h1 style={{ marginTop: "10px" }}>{user.name}'s Journals </h1>
 
@@ -238,5 +245,8 @@ export default function MyJournalsPage({ user }) {
         ""
       )}
     </div>
+      </main>
+    
   );
+
 }

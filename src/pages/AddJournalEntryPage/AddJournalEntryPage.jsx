@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
+import '../AddJournalEntryPage/AddJournalEntryPage.css'
 
 export default function AddJournalEntryPage({ user }) {
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ export default function AddJournalEntryPage({ user }) {
   if (!data) return null;
 
   return (
+    <main className='AddJournalPage'>
     <div style={{ width: "90%", margin: "auto auto", textAlign: "center" }}>
     <Card
       style={{
@@ -188,6 +190,7 @@ export default function AddJournalEntryPage({ user }) {
       
       
       </div>
+      </main>
 
     
   );
