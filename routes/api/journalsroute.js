@@ -4,6 +4,8 @@ const router = express.Router();
 const journalsCtrl = require('../../controllers/api/journals');
 
 router.post('/new', journalsCtrl.createEntry)
+//attempt get refactor
+router.get('/:id', journalsCtrl.display)
 
 module.exports = router
 // router.post("/create").post((req, res) => {

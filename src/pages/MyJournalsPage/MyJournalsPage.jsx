@@ -193,8 +193,7 @@ export default function MyJournalsPage({ user }) {
               <Card
                 style={{ 
                 textAlign: "left", 
-                marginTop: "20px",
-                margin: "auto auto",
+                margin: "20px auto",
                 maxWidth: "40rem",
                }}
                 key={journal._id}
