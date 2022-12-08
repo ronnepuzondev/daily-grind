@@ -32,11 +32,9 @@ export default function AddJournalEntryPage({ user }) {
   }
 
   function handleClick(event) {
-    console.log({ user });
     event.preventDefault();
     axios
       .post("/journals/new", input)
-      .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
     navigate("/journals");

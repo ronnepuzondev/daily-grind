@@ -25,18 +25,14 @@ export default function MyJournalsPage({ user }) {
     axios
       .get(`/journals/${user._id}`)
       .then((res) => {
-        console.log(res);
         setJournals(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
 
   const deleteJournal = (id) => {
-    console.log(id);
-
     axios
-      .delete(`/delete/${id}`)
-      .then((res) => console.log(res))
+      .delete(`/journals/${id}`)
       .catch((err) => console.log(err));
 
     window.location.reload();
@@ -77,21 +73,17 @@ export default function MyJournalsPage({ user }) {
   };
 
   const saveUpdatedJournal = () => {
-    console.log(updatedJournal);
-
     axios
-      .put(`/update/${updatedJournal.id}`, updatedJournal)
-      .then((res) => console.log(res))
+      .put(`/journals/${updatedJournal.id}`, updatedJournal)
       .catch((err) => console.log(err));
 
     handleClose();
     window.location.reload();
   };
 
-
   return (
     <div style={{ width: "90%", margin: "auto auto", textAlign: "center" }}>
-      <h1 style={{ marginTop:"10px"}}>{user.name}'s Journals </h1>
+      <h1 style={{ marginTop: "10px" }}>{user.name}'s Journals </h1>
 
       <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
@@ -165,9 +157,9 @@ export default function MyJournalsPage({ user }) {
             label="My daily thoughts.."
           >
             <Form.Control
-            as="textarea"
+              as="textarea"
               placeholder="daily thoughts"
-              style={{ height: "300px"}}
+              style={{ height: "300px" }}
               name="dailyThoughts"
               onChange={handleChange}
               value={
@@ -191,11 +183,11 @@ export default function MyJournalsPage({ user }) {
           {journals.map((journal) => {
             return (
               <Card
-                style={{ 
-                textAlign: "left", 
-                margin: "20px auto",
-                maxWidth: "40rem",
-               }}
+                style={{
+                  textAlign: "left",
+                  margin: "20px auto",
+                  maxWidth: "40rem",
+                }}
                 key={journal._id}
               >
                 <Card.Body>
@@ -228,14 +220,12 @@ export default function MyJournalsPage({ user }) {
                         journal.dailyThoughts
                       )
                     }
-                    // style={{ width: "100%", marginRight: "1rem" }}
                   >
                     UPDATE
                   </Button>
                   <Button
                     onClick={() => deleteJournal(journal._id)}
                     variant="secondary"
-                    // style={{ width: "100%" }}
                   >
                     DELETE
                   </Button>

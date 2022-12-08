@@ -29,66 +29,6 @@ app.use(require('./config/checkToken'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/journals', require('./routes/api/journalsroute'))
 
-// app.post('/api/dailyJournalRoute', require('./routes/api/dailyJournalRoute'))
-
-// ROUTES AND CONTROLLER FUNCTION BELOW
-
-// create route and function
-// app.post("/create", (req, res) => {
-//   // req.body.user = req.user._id
-//   const newNote = new DailyJournal(
-//     // dateAdded: req.body.dateAdded,
-//     // gratefulFor: req.body.gratefulFor,
-//     // affirmations: req.body.affirmations,
-//     // goals: req.body.goals,
-//     // wellnessGoals: req.body.wellnessGoals,
-//     // dailyThoughts: req.body.dailyThoughts,
-//     // user: req.body.user
-//     req.body
-  
-    
-//   );
-//   // req.body.user = req.user._id
-//   // console.log(req.body.user)
-
-//   newNote
-//     .save()
-//     .then((doc) => console.log(doc))
-//     .catch((err) => console.log(err));
-// });
-
-// display route and function
-// app.get("/journals/:id", (req, res) => {
-//   DailyJournal.find({user:req.params.id}).sort({dateAdded: -1})
-//     .then((items) => res.json(items))
-//     .catch((err) => console.log(err));
-// });
-
-// delete route and function
-app.delete("/delete/:id", (req, res) => {
-  console.log(req.params);
-  DailyJournal.findByIdAndDelete({ _id: req.params.id })
-    .then((doc) => console.log(doc))
-    .catch((err) => console.log(err));
-});
-
-// edit route and function
-app.put("/update/:id", (req, res) => {
-  DailyJournal.findByIdAndUpdate(
-    { _id: req.params.id },
-    {
-      dateAdded: req.body.dateAdded,
-      gratefulFor: req.body.gratefulFor,
-      affirmations: req.body.affirmations,
-      goals: req.body.goals,
-      wellnessGoals: req.body.wellnessGoals,
-      dailyThoughts: req.body.dailyThoughts,
-    }
-  )
-    .then((doc) => console.log(doc))
-    .catch((err) => console.log(err));
-});
-
 
 
 // "catch-all" route that will match all GET requests
