@@ -99,7 +99,7 @@ export default function MyJournalsPage({ user }) {
         </Modal.Header>
         <Modal.Body>
           <Form.Control
-            type="date"
+            type="datetime-local"
             name="dateAdded"
             onChange={handleChange}
             value={updatedJournal.dateAdded ? updatedJournal.dateAdded : ""}
@@ -191,12 +191,17 @@ export default function MyJournalsPage({ user }) {
           {journals.map((journal) => {
             return (
               <Card
-                style={{ textAlign: "left", marginTop: "20px" }}
+                style={{ 
+                textAlign: "left", 
+                marginTop: "20px",
+                margin: "auto auto",
+                maxWidth: "40rem",
+               }}
                 key={journal._id}
               >
                 <Card.Body>
                   <Card.Title className="mb-2">Date Added:</Card.Title>
-                  <p>{new Date(journal.dateAdded).toLocaleDateString()}</p>
+                  <p>{new Date(journal.dateAdded).toDateString()}</p>
                   <Card.Title className="mb-2">I Am Grateful For:</Card.Title>
                   <p>{journal.gratefulFor}</p>
                   <Card.Title className="mb-2">My Affirmations:</Card.Title>

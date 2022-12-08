@@ -59,7 +59,7 @@ app.use('/journals', require('./routes/api/journalsroute'))
 
 // display route and function
 app.get("/journals/:id", (req, res) => {
-  DailyJournal.find({user:req.params.id})
+  DailyJournal.find({user:req.params.id}).sort({dateAdded: -1})
     .then((items) => res.json(items))
     .catch((err) => console.log(err));
 });
