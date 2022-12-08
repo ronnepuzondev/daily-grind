@@ -40,6 +40,7 @@ export default function AddJournalEntryPage({ user }) {
       .catch((err) => console.log(err));
 
     navigate("/journals");
+    // window.location.reload()
   }
   // create attempt code ends here
   async function updateQuote() {

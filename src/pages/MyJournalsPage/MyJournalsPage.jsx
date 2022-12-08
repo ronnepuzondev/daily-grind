@@ -195,7 +195,7 @@ export default function MyJournalsPage({ user }) {
               >
                 <Card.Body>
                   <Card.Title className="mb-2">Date Added:</Card.Title>
-                  <p>{journal.dateAdded}</p>
+                  <p>{new Date(journal.dateAdded).toLocaleDateString()}</p>
                   <Card.Title className="mb-2">I Am Grateful For:</Card.Title>
                   <p>{journal.gratefulFor}</p>
                   <Card.Title className="mb-2">My Affirmations:</Card.Title>
