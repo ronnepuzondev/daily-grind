@@ -20,7 +20,6 @@ export default function AddJournalEntryPage({ user }) {
     dailyThoughts: "",
     user: "",
   });
-  
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -67,9 +66,19 @@ export default function AddJournalEntryPage({ user }) {
 
   return (
     <div style={{ width: "90%", margin: "auto auto", textAlign: "center" }}>
-      <Card style={{ alignContent: "center", margin: "auto auto", width: "90%", maxWidth: "40rem" }}>
+      <Card
+        style={{
+          alignContent: "center",
+          margin: "auto auto",
+          width: "90%",
+          maxWidth: "40rem",
+        }}
+      >
         <Card.Body>
-        <Card.Subtitle className="mb-2 text-muted"> {user.name}, here's a quote for inspiration!</Card.Subtitle>
+          <Card.Subtitle className="mb-2 text-muted">
+            {" "}
+            {user.name}, here's a quote for inspiration!
+          </Card.Subtitle>
           <blockquote className="blockquote mb-0">
             <p>{data.content}</p>
             {data.author && (
@@ -81,97 +90,102 @@ export default function AddJournalEntryPage({ user }) {
         </Card.Body>
       </Card>
 
-
-              
-              <Card style={{ width: "90%", marginTop: "20px", margin: "auto auto", maxWidth: "40rem" }}>
-                <Card.Body>
-                <Card.Title>Add Journal Entry</Card.Title>
-      <form>
-              <input
-            type="date"
-            onChange={handleChange}
-            name="dateAdded"
-            value={input.dateAdded}
-          ></input>
-      <FloatingLabel
-        controlId="floatingTextarea"
-        label="I am grateful for.."
-        className="mb-3"
+      <Card
+        style={{
+          width: "90%",
+          marginTop: "20px",
+          margin: "auto auto",
+          maxWidth: "40rem",
+        }}
       >
-        <Form.Control
-          as="textarea"
-          name="gratefulFor"
-          placeholder="Leave a comment here"
-          onChange={handleChange}
-          value={input.gratefulFor}
+        <Card.Body>
+          <Card.Title>Add Journal Entry</Card.Title>
+          <form>
+            <input
+              type="date"
+              onChange={handleChange}
+              name="dateAdded"
+              value={input.dateAdded}
+            ></input>
+            <FloatingLabel
+              controlId="floatingTextarea"
+              label="I am grateful for.."
+              className="mb-3"
+            >
+              <Form.Control
+                as="textarea"
+                name="gratefulFor"
+                placeholder="Leave a comment here"
+                onChange={handleChange}
+                value={input.gratefulFor}
+              />
+            </FloatingLabel>
 
-        />
-      </FloatingLabel>
+            <FloatingLabel
+              controlId="floatingTextarea"
+              label="My daily affirmations.."
+              className="mb-3"
+            >
+              <Form.Control
+                as="textarea"
+                name="affirmations"
+                placeholder="Leave a comment here"
+                onChange={handleChange}
+                value={input.affirmations}
+              />
+            </FloatingLabel>
 
+            <FloatingLabel
+              controlId="floatingTextarea"
+              label="My goals for today.."
+              className="mb-3"
+            >
+              <Form.Control
+                as="textarea"
+                name="goals"
+                placeholder="Leave a comment here"
+                onChange={handleChange}
+                value={input.goals}
+              />
+            </FloatingLabel>
 
-      <FloatingLabel
-        controlId="floatingTextarea"
-        label="My daily affirmations.."
-        className="mb-3"
-      >
-        <Form.Control
-          as="textarea"
-          name="affirmations"
-          placeholder="Leave a comment here"
-          onChange={handleChange}
-          value={input.affirmations}
-        />
-      </FloatingLabel>
+            <FloatingLabel
+              controlId="floatingTextarea"
+              label="My wellness goals for today.."
+              className="mb-3"
+            >
+              <Form.Control
+                as="textarea"
+                name="wellnessGoals"
+                placeholder="Leave a comment here"
+                onChange={handleChange}
+                value={input.wellnessGoals}
+              />
+            </FloatingLabel>
 
-      <FloatingLabel
-        controlId="floatingTextarea"
-        label="My goals for today.."
-        className="mb-3"
-      >
-        <Form.Control
-          as="textarea"
-          name="goals"
-          placeholder="Leave a comment here"
-          onChange={handleChange}
-          value={input.goals}
-        />
-      </FloatingLabel>
-
-      <FloatingLabel
-        controlId="floatingTextarea"
-        label="My wellness goals for today.."
-        className="mb-3"
-      >
-        <Form.Control
-          as="textarea"
-          name="wellnessGoals"
-          placeholder="Leave a comment here"
-          onChange={handleChange}
-          value={input.wellnessGoals}
-        />
-      </FloatingLabel>
-   
-
-      <FloatingLabel controlId="floatingTextarea2" label="My daily thoughts..">
-        <Form.Control
-          as="textarea"
-          name="dailyThoughts"
-          placeholder="Leave a comment here"
-          style={{ height: "200px" }}
-          onChange={handleChange}
-          value={input.dailyThoughts}
-        />
-      </FloatingLabel>
-      </form>
-      </Card.Body>
-      <Card.Footer>
-      <Button onClick={handleClick} variant="dark" type="submit">
-        Add Journal
-      </Button>
-      <Button variant="secondary" onClick={updateQuote}>
+            <FloatingLabel
+              controlId="floatingTextarea2"
+              label="My daily thoughts.."
+            >
+              <Form.Control
+                as="textarea"
+                name="dailyThoughts"
+                placeholder="Leave a comment here"
+                style={{ height: "200px" }}
+                onChange={handleChange}
+                value={input.dailyThoughts}
+              />
+            </FloatingLabel>
+          </form>
+        </Card.Body>
+        <Card.Footer>
+          <Button onClick={handleClick} variant="dark" type="submit">
+            Add Journal
+          </Button>
+          <Button variant="secondary" onClick={updateQuote}>
             Need More Inspiration
           </Button>
-      </Card.Footer>
+        </Card.Footer>
       </Card>
       {/* <form>
         <div>
@@ -219,8 +233,6 @@ export default function AddJournalEntryPage({ user }) {
         </div>
         <button onClick={handleClick}>Add Journal Entries</button>
       </form> */
-              
-
       /* <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Date of entry</Form.Label>
