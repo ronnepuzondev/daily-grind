@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/daily-grind/static/css/main.6cbd4dbe.css",
+    "main.js": "/daily-grind/static/js/main.91694b09.js",
+    "index.html": "/daily-grind/index.html",
+    "main.6cbd4dbe.css.map": "/daily-grind/static/css/main.6cbd4dbe.css.map",
+    "main.91694b09.js.map": "/daily-grind/static/js/main.91694b09.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6cbd4dbe.css",
+    "static/js/main.91694b09.js"
+  ]
+}
