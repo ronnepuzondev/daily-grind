@@ -18,7 +18,7 @@ export default function AddJournalEntryPage({ user }) {
     goals: "",
     wellnessGoals: "",
     dailyThoughts: "",
-    user: "",
+    user: `${user._id}`,
   });
 
   function handleChange(event) {
@@ -35,7 +35,7 @@ export default function AddJournalEntryPage({ user }) {
     console.log({ user });
     event.preventDefault();
     axios
-      .post("/create", input)
+      .post("/journals/new", input)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 

@@ -23,7 +23,7 @@ export default function MyJournalsPage({ user }) {
 
   useEffect(() => {
     axios
-      .get("/journals")
+      .get(`/journals/${user._id}`)
       .then((res) => {
         console.log(res);
         setJournals(res.data);

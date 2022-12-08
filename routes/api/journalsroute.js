@@ -3,7 +3,7 @@ const router = express.Router();
 
 const journalsCtrl = require('../../controllers/api/journals');
 
-router.post('/create', journalsCtrl.createEntry)
+router.post('/new', journalsCtrl.createEntry)
 
 module.exports = router
 // router.post("/create").post((req, res) => {

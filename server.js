@@ -27,40 +27,39 @@ app.use(require('./config/checkToken'));
 
 // Put all API routes here (before the catch-all)
 app.use('/api/users', require('./routes/api/users'));
-
-// app.use('/create', require('./routes/api/journalsroute'))
+app.use('/journals', require('./routes/api/journalsroute'))
 
 // app.post('/api/dailyJournalRoute', require('./routes/api/dailyJournalRoute'))
 
 // ROUTES AND CONTROLLER FUNCTION BELOW
 
 // create route and function
-app.post("/create", (req, res) => {
-  // req.body.user = req.user._id
-  const newNote = new DailyJournal(
-    // dateAdded: req.body.dateAdded,
-    // gratefulFor: req.body.gratefulFor,
-    // affirmations: req.body.affirmations,
-    // goals: req.body.goals,
-    // wellnessGoals: req.body.wellnessGoals,
-    // dailyThoughts: req.body.dailyThoughts,
-    // user: req.body.user
-    req.body
+// app.post("/create", (req, res) => {
+//   // req.body.user = req.user._id
+//   const newNote = new DailyJournal(
+//     // dateAdded: req.body.dateAdded,
+//     // gratefulFor: req.body.gratefulFor,
+//     // affirmations: req.body.affirmations,
+//     // goals: req.body.goals,
+//     // wellnessGoals: req.body.wellnessGoals,
+//     // dailyThoughts: req.body.dailyThoughts,
+//     // user: req.body.user
+//     req.body
   
     
-  );
-  // req.body.user = req.user._id
-  // console.log(req.body.user)
+//   );
+//   // req.body.user = req.user._id
+//   // console.log(req.body.user)
 
-  newNote
-    .save()
-    .then((doc) => console.log(doc))
-    .catch((err) => console.log(err));
-});
+//   newNote
+//     .save()
+//     .then((doc) => console.log(doc))
+//     .catch((err) => console.log(err));
+// });
 
 // display route and function
-app.get("/journals", (req, res) => {
-  DailyJournal.find()
+app.get("/journals/:id", (req, res) => {
+  DailyJournal.find({user:req.params.id})
     .then((items) => res.json(items))
     .catch((err) => console.log(err));
 });

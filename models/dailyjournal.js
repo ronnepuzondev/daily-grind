@@ -11,7 +11,7 @@ const dailyJournalSchema = new Schema({
     goals: {type: String},
     wellnessGoals: {type: String},
     dailyThoughts: {type: String},
-    // user: {type: Schema.Types.ObjectId, ref: 'User', required: true}
+    user: {type: Schema.Types.ObjectId, ref: 'User', required: true}
 },{
     timestamps: true
 })
