@@ -165,8 +165,9 @@ export default function MyJournalsPage({ user }) {
             label="My daily thoughts.."
           >
             <Form.Control
+            as="textarea"
               placeholder="daily thoughts"
-              style={{ height: "200px" }}
+              style={{ height: "300px"}}
               name="dailyThoughts"
               onChange={handleChange}
               value={
