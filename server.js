@@ -8,7 +8,6 @@ const cors = require("cors");
 require('dotenv').config();
 // Connect to db after the dotenv above
 require('./config/database');
-const DailyJournal = require('../daily-grind/models/dailyjournal');
 const app = express();
 app.use(cors());
 app.use(
