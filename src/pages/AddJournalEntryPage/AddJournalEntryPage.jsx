@@ -68,6 +68,7 @@ export default function AddJournalEntryPage({ user }) {
     <main className='AddJournalPage'>
     <div style={{ width: "90%", margin: "auto auto", textAlign: "center" }}>
     <Card
+    bg="light"
       style={{
         alignContent: "center",
         margin: "auto auto",
@@ -92,6 +93,7 @@ export default function AddJournalEntryPage({ user }) {
     </Card>
 
     <Card
+       bg="light"
       style={{
         width: "90%",
         marginTop: "20px",
@@ -100,7 +102,7 @@ export default function AddJournalEntryPage({ user }) {
       }}
     >
       <Card.Body>
-        <Card.Title>Add Journal Entry</Card.Title>
+      <h1 style={{fontSize:"40px"}}>Add Journal Entry</h1>
         <form>
           <input
             type="datetime-local"

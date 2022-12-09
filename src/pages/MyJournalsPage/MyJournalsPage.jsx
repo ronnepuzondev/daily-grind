@@ -87,7 +87,7 @@ export default function MyJournalsPage({ user }) {
     }}>
     <div style={{ width: "90%", margin: "auto auto", textAlign: "center" }}>
       <h1 style={{ marginTop: "10px" }}>{user.name}'s Journals </h1>
-      <Link to="/journals/new">Add Journal Entry</Link>
+      <Link style={{color:"white"}} to="/journals/new">Add Journal Entry</Link>
 
       <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
