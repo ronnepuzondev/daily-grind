@@ -1,6 +1,6 @@
  # **Daily Grind**
  
- ### ***Use this app to ground yourself - start each day by writing what you are grateful for, your daily affirmations, your daily goals, your daily thoughts and daily wellness goals***
+ ### ***Use this app to ground yourself - start each day by writing what you are grateful for, your daily affirmations, your daily goals, your daily wellness goals and your daily THOUGHTS!***
 &nbsp;
 ## **Screenshots:**
 
