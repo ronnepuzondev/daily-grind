@@ -42,10 +42,12 @@
 - Mongoose
 - Express.JS
 - React.JS
+- Node.JS
+- Axios
 - React Bootstrap
+- React Snowfall
 - JWT
 - Quotable Api (random quote generator - https://github.com/lukePeavey/quotable )
-- React Snowfall
 
 
 &nbsp;
