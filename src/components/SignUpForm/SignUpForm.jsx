@@ -42,7 +42,7 @@ export default class SignUpForm extends Component {
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
-      <Card><Card.Body>
+      <Card bg="light"><Card.Body>
           <form autoComplete="off" onSubmit={this.handleSubmit}>
           <FloatingLabel
               controlId="floatingTextarea"
@@ -71,7 +71,7 @@ export default class SignUpForm extends Component {
             >
             <Form.Control placeholder="123" as="textarea" type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required /> </FloatingLabel>
             <button type="submit" disabled={disable}>SIGN UP</button>
-        {/* <p className="error-message">&nbsp;{this.state.error}</p> */}
+
         
         </form>
         </Card.Body>

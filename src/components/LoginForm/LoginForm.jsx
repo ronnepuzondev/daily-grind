@@ -29,7 +29,7 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <Card>
+    <Card bg="light">
       <Card.Body>
         <form autoComplete="off" onSubmit={handleSubmit}>
           <FloatingLabel

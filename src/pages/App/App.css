@@ -1,6 +1,8 @@
 .App {
-  background-color: #c6c6c6;
-  height: 100vh
+    background-image: url("../../../images/snow.jpeg");
+    background-attachment: fixed;
+    background-size: 'cover';
+    overflow: 'hidden',
 }
 
 

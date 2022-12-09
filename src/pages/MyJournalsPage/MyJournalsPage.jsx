@@ -1,14 +1,9 @@
-import { checkToken } from "../../utilities/users-service";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button, Card, Form } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import ReactDOM from 'react-dom'
-import Snowfall from 'react-snowfall'
 import { Link } from 'react-router-dom'
-
 
 
 export default function MyJournalsPage({ user }) {
@@ -195,7 +190,7 @@ export default function MyJournalsPage({ user }) {
                 style={{
                   textAlign: "left",
                   margin: "20px auto",
-                  maxWidth: "40rem",
+                  maxWidth: "60rem",
                 }}
                 key={journal._id}
               >
@@ -248,7 +243,5 @@ export default function MyJournalsPage({ user }) {
       )}
     </div>
       </main>
-    
   );
-
 }

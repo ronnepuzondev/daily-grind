@@ -71,7 +71,7 @@ export default function AddJournalEntryPage({ user }) {
       style={{
         alignContent: "center",
         margin: "auto auto",
-        maxWidth: "40rem",
+        maxWidth: "30rem",
       }}
     >
       <Card.Body>
@@ -87,6 +87,7 @@ export default function AddJournalEntryPage({ user }) {
             </footer>
           )}
         </blockquote>
+        <h5 style={{cursor:"grab",marginTop:"10px",fontSize:"14px", textAlign:"center"}} onClick={updateQuote}>click for another quote</h5>
       </Card.Body>
     </Card>
 
@@ -95,7 +96,7 @@ export default function AddJournalEntryPage({ user }) {
         width: "90%",
         marginTop: "20px",
         margin: "auto auto",
-        maxWidth: "40rem",
+        maxWidth: "50rem",
       }}
     >
       <Card.Body>
@@ -106,10 +107,11 @@ export default function AddJournalEntryPage({ user }) {
             onChange={handleChange}
             name="dateAdded"
             value={input.dateAdded}
+            style={{marginBottom:"10px"}}
           ></input>
           <FloatingLabel
             controlId="floatingTextarea"
-            label="I am grateful for.."
+            label="I am grateful for:"
             className="mb-3"
           >
             <Form.Control
@@ -117,13 +119,14 @@ export default function AddJournalEntryPage({ user }) {
               name="gratefulFor"
               placeholder="Leave a comment here"
               onChange={handleChange}
+              style={{ height: "100px" }}
               value={input.gratefulFor}
             />
           </FloatingLabel>
 
           <FloatingLabel
             controlId="floatingTextarea"
-            label="My daily affirmations.."
+            label="My daily affirmations:"
             className="mb-3"
           >
             <Form.Control
@@ -131,13 +134,14 @@ export default function AddJournalEntryPage({ user }) {
               name="affirmations"
               placeholder="Leave a comment here"
               onChange={handleChange}
+              style={{ height: "100px" }}
               value={input.affirmations}
             />
           </FloatingLabel>
 
           <FloatingLabel
             controlId="floatingTextarea"
-            label="My goals for today.."
+            label="My goals for today:"
             className="mb-3"
           >
             <Form.Control
@@ -145,13 +149,14 @@ export default function AddJournalEntryPage({ user }) {
               name="goals"
               placeholder="Leave a comment here"
               onChange={handleChange}
+              style={{ height: "100px" }}
               value={input.goals}
             />
           </FloatingLabel>
 
           <FloatingLabel
             controlId="floatingTextarea"
-            label="My wellness goals for today.."
+            label="My wellness goals for today:"
             className="mb-3"
           >
             <Form.Control
@@ -159,19 +164,20 @@ export default function AddJournalEntryPage({ user }) {
               name="wellnessGoals"
               placeholder="Leave a comment here"
               onChange={handleChange}
+              style={{ height: "100px" }}
               value={input.wellnessGoals}
             />
           </FloatingLabel>
 
           <FloatingLabel
             controlId="floatingTextarea2"
-            label="My daily thoughts.."
+            label="My daily thoughts:"
           >
             <Form.Control
               as="textarea"
               name="dailyThoughts"
               placeholder="Leave a comment here"
-              style={{ height: "200px" }}
+              style={{ height: "300px" }}
               onChange={handleChange}
               value={input.dailyThoughts}
             />
@@ -181,9 +187,6 @@ export default function AddJournalEntryPage({ user }) {
       <Card.Footer>
         <Button onClick={handleClick} variant="dark" type="submit">
           Add Journal
-        </Button>
-        <Button variant="secondary" onClick={updateQuote}>
-          Need More Inspiration
         </Button>
       </Card.Footer>
     </Card>

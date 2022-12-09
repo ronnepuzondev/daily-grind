@@ -16,7 +16,7 @@ function App() {
     <main className="App">
       { user ?
         <>
-        <Snowfall snowflakeCount={100} />
+        <Snowfall snowflakeCount={200} />
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* Route components in here */}
