@@ -16,7 +16,7 @@ export default function AuthPage({ setUser }) {
       }}
     >
       <Card.Body>
-        <h1 style={{ fontSize: "60px" }}>Daily Grind</h1>
+        <h1 style={{ fontSize: "60px" }}>Daily Grind!</h1>
         <Card.Subtitle>Ponder the questions</Card.Subtitle>
         <Card.Subtitle style={{ marginTop: "5px" }}>
           What are you grateful for today?
