@@ -24,7 +24,7 @@ export default function NavBar({ user, setUser }) {
             <Nav.Link href="/journals">My Journals</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link eventKey={2} href="">
               Welcome, {user.name}
             </Nav.Link>
             <Nav.Link to="" onClick={handleLogOut}>Log Out</Nav.Link>
