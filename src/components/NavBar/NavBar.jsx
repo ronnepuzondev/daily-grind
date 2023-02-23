@@ -22,7 +22,6 @@ export default function NavBar({ user, setUser }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/journals">My Journals</Nav.Link>
-            <Nav.Link href="/journals/new">Add Journal Entry</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link eventKey={2} href="#memes">
