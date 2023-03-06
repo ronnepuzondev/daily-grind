@@ -68,7 +68,6 @@ export default function SignUpForm(props) {
           <FloatingLabel controlId="floatingTextarea" label="Password" className="mb-3">
             <Form.Control
               placeholder="123"
-              as="textarea"
               type="password"
               name="password"
               value={formData.password}
@@ -79,7 +78,6 @@ export default function SignUpForm(props) {
           <FloatingLabel controlId="floatingTextarea" label="Confirm Password" className="mb-3">
             <Form.Control
               placeholder="123"
-              as="textarea"
               type="password"
               name="confirm"
               value={formData.confirm}

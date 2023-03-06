@@ -37,7 +37,6 @@ export default function AddJournalEntryPage({ user }) {
     axios
       .post("/journals/new", input)
       .catch((err) => console.log(err));
-
     navigate("/journals");
     // window.location.reload()
   }
